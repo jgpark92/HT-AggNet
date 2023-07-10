@@ -12,9 +12,9 @@ def channel_shuffle(x, groups):
     x = x.view(batchsize, -1, T)
     return x
 
-class TFuseBlock(nn.Module):
+class TAggBlock(nn.Module):
     def __init__(self, i_nc, o_nc, L, T):
-        super(TFuseBlock, self).__init__()
+        super(TAggBlock, self).__init__()
         self.L = L
 
         # local temperol convolution
@@ -31,10 +31,10 @@ class TFuseBlock(nn.Module):
         g_feat = self.tgconv(l_feat)
         return l_feat, g_feat
 
-class HTFuseNet(nn.Module):
+class HTAggNet(nn.Module):
     def __init__(self, nc_input, n_classes, segment_size):
 
-        super(HTFuseNet, self).__init__()
+        super(HTAggNet, self).__init__()
         T = segment_size
         self.nc_o = 128
         self.L = 8
@@ -46,7 +46,7 @@ class HTFuseNet(nn.Module):
 
         self.layers = nn.ModuleList()
         for _ in range(self.L):
-            self.layers.append(TFuseBlock(self.nc_o, self.nc_o, self.L, T))
+            self.layers.append(TAggBlock(self.nc_o, self.nc_o, self.L, T))
         
         self.fc = nn.Linear(self.nc_o, n_classes)
     
