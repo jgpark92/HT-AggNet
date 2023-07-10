@@ -1,8 +1,8 @@
-# HT-FuseNet: Effective Human Activity Recognition based on Depth-free Hierarchical Temporal Fusion
+# HT-AggNet: Depth-free Hierarchical Temporal Aggregation for Human Activity Recognition
 
 ## Abstract
 
-This program (HT-FuseNet) is designed to perform the real-time sensor-based activity recognition. The HT-FuseNet includes a depth-free network architecture capable of stacking layers without increasing theoretical computation costs.
+This program (HT-AggNet) is designed to perform the real-time sensor-based activity recognition. The HT-AggNet includes a depth-free network architecture capable of stacking layers without increasing theoretical computation costs.
 
 This software is a PyTorch implementation of the proposed method. The original version of this program was written by Jaegyun Park. 
 <!-- You can find detailed information in our manuscript. -->
